@@ -61,27 +61,30 @@ endfunction
 ruby << RUBY
 require "#{ENV['HOME']}/.vim/ruby/codepath"
 def codepath
-   @codepath ||= CodePath.new
+   @codepath ||= CodePath.new(VIM.evaluate("g:codepath"))
 end
 RUBY
 
 function! CodePath()
     let roots = []
     ruby << RUBY
-    result=codepath.codedir(VIM.evaluate("getcwd()"), VIM.evaluate("g:codepath"))
+    result=codepath.codedir(VIM.evaluate("getcwd()"))
     VIM.evaluate("add(roots,\"#{result}\")")
 RUBY
     return get(roots,0)
 endfunction
 
 if exists("g:codepath_add_to_path")
-    let path_dir =[]
+    let path_dirs = []
     ruby << RUBY
-    for dir in codepath.subdirs(VIM.evaluate("CodePath()"))
-       VIM.evaluate("add(path_dir,\"#{dir}\")")
+    current_dir = VIM.evaluate("getcwd()")
+    if codepath.codedir?(current_dir)
+        for dir in codepath.subdirs(VIM.evaluate("CodePath()"))
+           VIM.evaluate("add(path_dirs,\"#{dir}\")")
+        end
     end
 RUBY
-    let &path = &path . s:pathjoin(path_dir)
+    let &path = &path . s:pathjoin(path_dirs)
 endif
 
 if exists("g:codepath_add_to_tags")

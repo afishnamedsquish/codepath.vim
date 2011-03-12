@@ -12,7 +12,7 @@ vim_dir=File.expand_path("~/.vim")
 
 desc "zip project version #{CodePath::VERSION}"
 task :zip do
-    system("zip codepath.zip #{files.join(" ")}")
+    system("zip zip/codepath.zip #{files.join(" ")}")
 end
 
 desc 'pulls from git repository'
