@@ -46,7 +46,7 @@ I will likely add some features (no particular order):
 * Excludes dirs from vim path based on configuration
 * Multi-path setting for g:codepath
 * rails oriented tags
-* multi-platform ( Someone win user could help )
+* multi-platform ( a win user could help )
 
 h2. copyright
 
