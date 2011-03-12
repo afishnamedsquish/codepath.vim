@@ -1,7 +1,7 @@
-h2. how it works
-
 codepath.vim is a plugin that provides a simple function to obtain your code path directory if you have one. 
 The concept is simple: I have a dir located in $HOME/code where i store all my projects and I want to set current project directory as root directory for plug-in like NERDTree and FuzzyFinderTextMate.
+
+h2. how it works
 
 By default, codepath.vim does nothing. No, well it does something. It adds a vim function CodePath() that returns the your current code dir. I think I can show how it works with some examples:
 
