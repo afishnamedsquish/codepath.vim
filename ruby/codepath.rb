@@ -20,7 +20,7 @@ class CodePath
     end  
 
     def codedir?(current_dir)
-        current_dir.include?(@code_dir)
+        current_dir.include?(@code_dir) && current_dir != @code_dir
     end
 
 end
