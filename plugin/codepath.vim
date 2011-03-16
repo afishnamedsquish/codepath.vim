@@ -50,6 +50,10 @@ RUBY
     return get(roots,0)
 endfunction
 
+function! CodePathStatusLine()
+    return expand("%:p")
+endfunction
+
 if exists("g:codepath_add_to_path")
     ruby << RUBY
     current_dir = VIM.evaluate("getcwd()")
