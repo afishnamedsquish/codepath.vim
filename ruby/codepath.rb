@@ -7,7 +7,7 @@ class CodePath
     end
 
     def codedir(current_dir)
-        code_dir="" 
+        code_dir=current_dir 
         if codedir?(current_dir)
             current_dir[/#{@code_dir}/]=""
             code_dir="#{@code_dir}/#{current_dir.match(/^\/([^\/]+)/)[1]}"
