@@ -6,20 +6,32 @@ describe CodePath do
     let(:bad_dir) {"/home/lucapette/notcode/project/subdir"}
 
     describe "#codedir?" do
-        it "should return true for good dir" do
-            codepath.codedir?(good_dir).should be true
+
+        context "with a dir in path" do
+            it "returns true" do
+                codepath.codedir?(good_dir).should be true
+            end
         end
-        it "should return fals for bad dir" do
-            codepath.codedir?(bad_dir).should be false
+
+        context "with a dir not in path" do
+            it "returns false" do
+                codepath.codedir?(bad_dir).should be false
+            end
         end
+
     end
 
     describe "#codedir" do
-        it "should return codir for good subdir" do
-            codepath.codedir(good_dir).should == "/home/lucapette/code/project"
+        context "with a dir in path" do
+            it "returns the current root project dir" do
+                codepath.codedir(good_dir).should == "/home/lucapette/code/project"
+            end
         end
-        it "should return bad dir for bad dir" do
-            codepath.codedir(bad_dir).should == bad_dir
+        context "with a dir not in path" do
+            it "returns the dir itself" do
+                codepath.codedir(bad_dir).should == bad_dir
+            end
         end
     end
+
 end
