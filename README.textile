@@ -1,5 +1,5 @@
 codepath.vim is a plugin that provides a simple function to obtain your code path directory if you have one. 
-The concept is simple: I have a dir located in $HOME/code where i store all my projects and I want to set current project directory as root directory for plug-in like NERDTree and FuzzyFinderTextMate.
+The concept is simple: I have a dir located in $HOME/code where I store all my projects and I want to set current project directory as root directory for plug-in like NERDTree and FuzzyFinderTextMate.
 
 h2. how it works
 
@@ -11,6 +11,10 @@ By default, codepath.vim does nothing. No, well it does something. It adds a vim
 |/any/path/but/not/foo.rb|/any/path/but/not/|
 
 So, the _CodePath()_ Function returns the _project root_ if you open a file in any subdirectory of your codepath and returns the directory itself if you open a file in any other location.
+
+h2. Installation
+
+Use the method you prefer: manual, bundle via pathogen and etc. But please remember to run gem install codepath. 
 
 h2. Configurations
 

@@ -1,5 +1,9 @@
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__),'ruby')
+begin
 require "codepath"
+rescue LoadError
+    puts "Please run gem install codepath"
+    raise
+end
 require 'rake'
 require 'find'
 require 'pathname'
@@ -35,11 +39,3 @@ task :install do
         end
     end
 end
-
-require 'rspec/core/rake_task'
-desc 'Default: run specs'
-RSpec::Core::RakeTask.new do |t|
-    t.pattern = "spec/*_spec.rb"
-end
-
-task :default => :spec  
