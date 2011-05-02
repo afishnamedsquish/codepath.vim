@@ -3,14 +3,14 @@ The concept is simple: I have a dir located in $HOME/code where I store all my p
 
 h2. how it works
 
-By default, codepath.vim does nothing. No, well it does something. It adds a vim function CodePath() that returns the your current code dir. I think I can show how it works with some examples:
+By default, codepath.vim does nothing. No, well it does something. It adds a vim function codepath#path() that returns the your current code dir. I think I can show how it works with some examples:
 
-|File Opened|CodePath() Result|
+|File Opened|codepath#path() Result|
 |_codepath_/awesome-project/foo.rb|_codepath_/awesome-project|
 |_codepath_/code/super-project/foo/bar.rb|_codepath_/super-project|
 |/any/path/but/not/foo.rb|/any/path/but/not/|
 
-So, the _CodePath()_ Function returns the _project root_ if you open a file in any subdirectory of your codepath and returns the directory itself if you open a file in any other location.
+So, the _codepath#path()_ Function returns the _project root_ if you open a file in any subdirectory of your codepath and returns the directory itself if you open a file in any other location.
 
 h2. Installation
 
@@ -32,14 +32,14 @@ Set to 1 if you want to add a tags file located in your root dir.
 
 h2. NERDTree and FuzzyFinder
 
-You could use the CodePath() in the following way:
+You could use the codepath#path() in the following way:
 
-nnoremap <silent> <F4> :NERDTreeToggle `=CodePath()`<cr>
-inoremap <silent> <F4> <Esc>:NERDTreeToggle `=CodePath()` <cr>
+nnoremap <silent> <F4> :NERDTreeToggle `=codepath#path()`<cr>
+inoremap <silent> <F4> <Esc>:NERDTreeToggle `=codepath#path()` <cr>
 
 Every time I open a NERDTree window It opens itself based on my function. The same thing with the FuzzyFinder plugin in the following way:
 
-let g:fuzzy_roots = [CodePath()]
+let g:fuzzy_roots = [codepath#path()]
 
 Obviously, you can choose different mappings and settings.
 
