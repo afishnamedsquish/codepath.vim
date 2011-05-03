@@ -1,5 +1,6 @@
 begin
-require "codepath"
+    require "rubygems"
+    require "codepath"
 rescue LoadError
     puts "Please run gem install codepath"
     raise
@@ -19,13 +20,13 @@ task :zip do
     system("zip zip/codepath.zip #{files.join(" ")}")
 end
 
-desc 'pulls from git repository'
+desc 'pull from git repository'
 task :pull do
     puts "Updating from git repository"
     system("cd " << Dir.new(File.dirname(__FILE__)).path << " && git pull")
 end
 
-desc "installs codepath in #{vim_dir} dir"
+desc "install codepath in #{vim_dir} dir"
 task :install do
     files.each do |file|
         if File.exists?(file)
@@ -39,3 +40,5 @@ task :install do
         end
     end
 end
+
+task :default => :zip
