@@ -60,7 +60,6 @@ function! codepath#statusline()
     let roots = []
     ruby << RUBY
     result=codepath.project_name(VIM.evaluate("expand('%:p')"))
-    puts result
     VIM.evaluate("add(roots,\"#{result}\")")
 RUBY
 
