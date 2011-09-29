@@ -27,13 +27,21 @@ h2. NERDTree and CommandT
 
 You could use the codepath#path() in the following way:
 
+<code>
 nnoremap <silent> <F4> :NERDTreeToggle `=codepath#path()`<cr>
+</code>
+<code>
 inoremap <silent> <F4> <Esc>:NERDTreeToggle `=codepath#path()` <cr>
+</code>
 
 Every time I open a NERDTree window It opens itself based on my function. The same thing with the CommandT plugin in the following way:
 
+<code>
 map   <silent> <C-T> :CommandT <c-r>=codepath#path()<CR><CR>
+</code>
+<code>
 imap   <silent> <C-T> <ESC>:CommandT <c-r>=codepath#path()<CR><CR>
+</code>
 
 Obviously, you can choose different mappings and settings.
 
