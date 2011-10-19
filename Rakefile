@@ -1,10 +1,3 @@
-begin
-    require "rubygems"
-    require "codepath"
-rescue LoadError
-    puts "Please run gem install codepath"
-    raise
-end
 require 'rake'
 require 'find'
 require 'pathname'
@@ -15,7 +8,7 @@ files = `git ls-files`.split("\n")
 files.reject! { |f| IGNORE_FILES.any? { |re| f.match(re) } }
 vim_dir=File.expand_path("~/.vim")
 
-desc "zip project version #{CodePath::VERSION}"
+desc "zip project version"
 task :zip do
     system("zip zip/codepath.zip #{files.join(" ")}")
 end
