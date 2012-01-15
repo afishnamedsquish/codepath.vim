@@ -33,4 +33,5 @@ function! codepath#cwd()
   let path = split(getcwd(), '/')
   call remove(path, -1)
   let g:codepath = '/'.join(path,'/')
+  echom g:codepath
 endfunction
