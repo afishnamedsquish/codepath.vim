@@ -20,12 +20,12 @@ endif
 
 let loaded_codepath = 1
 
-function! codepath#path()
+function! codepath#path(...)
   let current_dir = getcwd()
   if current_dir != g:codepath && match(current_dir, g:codepath) >= 0
     return g:codepath.'/'.split(current_dir,'/')[len(split(g:codepath, "/"))]
   else
-    return current_dir
+    return a:0 > 0 && a:1 == 1 ? current_dir : 0
   endif
 endfunction
 
