@@ -1,11 +1,9 @@
 " ==================================================================
 " File:        codepath.vim
-" Description: This plugin provides a function to get a root project
-"              directory based on a given directory.
-"              It has other features, see
-"              https://github.com/lucapette/codepath.vim.
+" Description: Fork codepath by Luca Pette https://github.com/lucapette/codepath.vim.
+"				Added ability for codepath#path to return 0 if otuside of the g:codepath.
 "
-" Maintainer:  Luca Pette <lucapette@gmail.com>
+" Maintainer:  Ben Glassman <bglassman@gmail.com>
 " License:     Copyright 2012 Luca Pette
 "              Distributed under the same terms as Vim itself.
 " ==================================================================
@@ -20,12 +18,12 @@ endif
 
 let loaded_codepath = 1
 
-function! codepath#path()
+function! codepath#path(...)
   let current_dir = getcwd()
   if current_dir != g:codepath && match(current_dir, g:codepath) >= 0
     return g:codepath.'/'.split(current_dir,'/')[len(split(g:codepath, "/"))]
   else
-    return current_dir
+    return a:0 > 0 && a:1 == 1 ? 0 : current_dir
   endif
 endfunction
 
