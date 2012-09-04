@@ -2,7 +2,6 @@
 " File:        codepath.vim
 " Description: Fork codepath by Luca Pette https://github.com/lucapette/codepath.vim.
 "				Added ability for codepath#path to return 0 if otuside of the g:codepath.
-"
 " Maintainer:  Ben Glassman <bglassman@gmail.com>
 " License:     Copyright 2012 Luca Pette
 "              Distributed under the same terms as Vim itself.
